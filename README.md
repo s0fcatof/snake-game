@@ -1,4 +1,4 @@
-# PMTool-Cards-Frontend
+# Snake Game Canvas
 
 ## Installation for local development
 
@@ -19,13 +19,13 @@ npm run dev
 1. Build docker image
 
 ```
-docker build -t pmtool-cards-reactjs-front:latest .
+docker build -t snake-game-canvas:latest .
 ```
 
 2. Run docker container
 
 ```
-docker run --rm --name pmtool-cards-front -p 80:80 -d pmtool-cards-reactjs-front:latest
+docker run --rm --name snake-game-canvas -p 80:80 -d snake-game-canvas:latest
 ```
 
 **Have fun!**
