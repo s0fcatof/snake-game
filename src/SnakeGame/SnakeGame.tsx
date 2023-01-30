@@ -12,9 +12,10 @@ import useSnakeMovement from "./useSnakeMovement";
 import randomPos from "./randomPos";
 import useInterval from "../hooks/useInterval";
 import createSnake from "./createSnake";
+import sound from "../../assets/eat.mp3";
 
 const SnakeGame = () => {
-  const [audio] = useState(new Audio("../assets/eat.mp3"));
+  const [audio] = useState(new Audio(sound));
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [foodPosition, setFoodPosition] = useState<Position | undefined>();
   const firstSnake = createSnake("blue");
