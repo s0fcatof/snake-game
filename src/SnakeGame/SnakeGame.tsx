@@ -13,6 +13,7 @@ import randomPos from "./randomPos";
 import useInterval from "../hooks/useInterval";
 import createSnake from "./createSnake";
 import sound from "../../assets/eat.mp3";
+import willSnakeHitTheFood from "./willSnakeHitTheFood";
 
 const SnakeGame = () => {
   const [audio] = useState(new Audio(sound));
@@ -148,42 +149,6 @@ const SnakeGame = () => {
         snakeBodyAfterMovement = moveRight(snake.body);
         break;
     }
-
-    type WillSnakeHitTheFoodArgs = {
-      foodPosition: Position;
-      snakeHeadPosition: Position;
-      direction: MovementDirection;
-    };
-
-    const willSnakeHitTheFood = ({
-      foodPosition,
-      snakeHeadPosition,
-      direction,
-    }: WillSnakeHitTheFoodArgs) => {
-      switch (direction) {
-        case MovementDirection.UP:
-          return (
-            foodPosition.x === snakeHeadPosition.x &&
-            snakeHeadPosition.y - SEGMENT_SIZE === foodPosition.y
-          );
-        case MovementDirection.DOWN:
-          return (
-            foodPosition.x === snakeHeadPosition.x &&
-            snakeHeadPosition.y + SEGMENT_SIZE === foodPosition.y
-          );
-        case MovementDirection.LEFT:
-          return (
-            foodPosition.y === snakeHeadPosition.y &&
-            snakeHeadPosition.x - SEGMENT_SIZE === foodPosition.x
-          );
-
-        case MovementDirection.RIGHT:
-          return (
-            foodPosition.y === snakeHeadPosition.y &&
-            snakeHeadPosition.x + SEGMENT_SIZE === foodPosition.x
-          );
-      }
-    };
 
     if (
       snake.direction !== undefined &&
